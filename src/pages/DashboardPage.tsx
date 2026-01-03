@@ -1,4 +1,4 @@
-import { logout } from "@/lib/auth";
+import { logout } from "../lib/auth";
 
 export default function DashboardPage() {
   return (

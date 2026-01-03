@@ -1,3 +1,5 @@
+import { loginWithGoogle } from "../lib/auth";
+
 export default function LoginPage() {
   return (
     <div
@@ -36,6 +38,8 @@ export default function LoginPage() {
         >
           Login
         </button>
+
+        <button onClick={loginWithGoogle}>Login with Google</button>
       </div>
     </div>
   );
