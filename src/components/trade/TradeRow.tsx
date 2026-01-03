@@ -1,4 +1,4 @@
-import { TableRow, TableCell, Chip, Avatar } from "@mui/material";
+import { TableRow, TableCell, Chip, Avatar, Stack } from "@mui/material";
 import TradeActions from "./TradeActions";
 import dayjs from "dayjs";
 
@@ -10,19 +10,24 @@ export default function TradeRow({ trade }: { trade: any }) {
       <TableCell>{trade.account}</TableCell>
 
       {/* Pair */}
-      <TableCell>{trade.pair}</TableCell>
-
-      {/* Pair Icon (dari DB) */}
       <TableCell>
-        {trade.pair_icon_url ? (
-          <Avatar
-            src={trade.pair_icon_url}
-            sx={{ width: 20, height: 20 }}
-            variant="square"
-          />
-        ) : (
-          "-"
-        )}
+        <Stack
+          display="flex"
+          flexDirection={"row"}
+          gap={1}
+          alignItems={"center"}
+        >
+          {trade.pair_icon_url ? (
+            <Avatar
+              src={trade.pair_icon_url}
+              sx={{ width: 20, height: 20 }}
+              variant="square"
+            />
+          ) : (
+            "-"
+          )}
+          {trade.pair}
+        </Stack>
       </TableCell>
 
       <TableCell>{trade.timeframe}</TableCell>

@@ -16,7 +16,7 @@ export async function fetchTrades({
     .from("vw_trades_list") // ⬅️ view (atau table) utama
     .select("*", { count: "exact" })
     .range(from, to)
-    .order("entry_time", { ascending: false });
+    .order("entry_datetime", { ascending: false });
 
   // 🔍 spotlight search → kirim full string ke DB
   if (search.trim()) {

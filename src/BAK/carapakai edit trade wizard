@@ -1,0 +1,10 @@
+<!-- <TradeWizardProvider mode="edit">
+  <WizardStepper />
+</TradeWizardProvider> -->
+
+<!-- loadForEdit({
+  account_id,
+  pair_id,
+  entry_datetime,
+  ...
+}); -->
