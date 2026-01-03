@@ -25,6 +25,7 @@ export default function LoginPage() {
         <p style={{ opacity: 0.6, marginBottom: 24 }}>Trading Journal Login</p>
 
         <button
+          onClick={loginWithGoogle}
           style={{
             width: "100%",
             padding: "12px 16px",
@@ -36,10 +37,8 @@ export default function LoginPage() {
             cursor: "pointer",
           }}
         >
-          Login
+          Login with Google
         </button>
-
-        <button onClick={loginWithGoogle}>Login with Google</button>
       </div>
     </div>
   );
