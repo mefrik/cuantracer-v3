@@ -13,4 +13,5 @@ export async function loginWithGoogle() {
 
 export async function logout() {
   await supabase.auth.signOut();
+  window.location.href = "/login";
 }
