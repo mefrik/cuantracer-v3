@@ -4,6 +4,7 @@ import DashboardPage from "@/pages/DashboardPage";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 import MainLayout from "@/layout/MainLayout";
+import TradesPage from "@/pages/TradesPage";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ export const router = createBrowserRouter([
         path: "/trades",
         element: (
           <ProtectedRoute>
-            <div>Trades Page</div>
+            <TradesPage />
           </ProtectedRoute>
         ),
       },

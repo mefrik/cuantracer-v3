@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Dockbar from "@/components/Dockbar";
+import AddTradeModal from "@/components/trade/AddTradeModal";
 
 export default function MainLayout() {
   const { pathname } = useLocation();
@@ -11,6 +12,7 @@ export default function MainLayout() {
     <>
       <Outlet />
       {!hideDock && <Dockbar />}
+      <AddTradeModal />
     </>
   );
 }

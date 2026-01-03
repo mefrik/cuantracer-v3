@@ -1,14 +1,19 @@
-import { Box, IconButton, Tooltip } from "@mui/material";
+import { Box, IconButton, Tooltip, Divider } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import LogoutIcon from "@mui/icons-material/Logout";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
-import { useNavigate } from "react-router-dom";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { logout } from "@/lib/auth";
+import { useUI } from "@/app/uiStore";
+import { useNavigate } from "react-router-dom";
+import { useThemeMode } from "@/app/ThemeProvider";
+import ToggleOnIcon from "@mui/icons-material/ToggleOn";
 
 export default function Dockbar() {
   const navigate = useNavigate();
-
+  const { openAddTradeModal } = useUI();
+  const { toggleTheme } = useThemeMode();
   return (
     <Box
       sx={{
@@ -18,7 +23,7 @@ export default function Dockbar() {
         transform: "translateX(-50%)",
         display: "flex",
         alignItems: "center",
-        gap: 1,
+        gap: 0.5,
         px: 2,
         py: 1.2,
         borderRadius: 999,
@@ -43,6 +48,23 @@ export default function Dockbar() {
         </IconButton>
       </Tooltip>
 
+      {/* ADD TRADE */}
+      <Tooltip title="Add Trade">
+        <IconButton onClick={openAddTradeModal} sx={{ color: "success.light" }}>
+          <AddCircleOutlineIcon />
+        </IconButton>
+      </Tooltip>
+
+      {/* DIVIDER */}
+      <Divider
+        orientation="vertical"
+        flexItem
+        sx={{
+          mx: 0.5,
+          borderColor: "rgba(255,255,255,0.25)",
+        }}
+      />
+
       {/* DASHBOARD */}
       <Tooltip title="Dashboard">
         <IconButton onClick={() => navigate("/")}>
@@ -54,6 +76,28 @@ export default function Dockbar() {
       <Tooltip title="Trades">
         <IconButton onClick={() => navigate("/trades")}>
           <ListAltIcon />
+        </IconButton>
+      </Tooltip>
+
+      {/* DIVIDER */}
+      <Divider
+        orientation="vertical"
+        flexItem
+        sx={{
+          mx: 0.5,
+          borderColor: "rgba(255,255,255,0.25)",
+        }}
+      />
+
+      {/* THEME */}
+      <Tooltip title="Toggle Theme">
+        <IconButton
+          onClick={toggleTheme}
+          sx={{
+            color: "error.light",
+          }}
+        >
+          <ToggleOnIcon />
         </IconButton>
       </Tooltip>
 
